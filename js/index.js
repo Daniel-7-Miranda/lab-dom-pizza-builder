@@ -43,12 +43,29 @@ function renderPepperoni() {
 }
 
 function renderMushrooms() {
-  // Iteration 1: set the visibility of `<section class="mushroom">`
+// Iteration 1: set the visibility of `<section class="mushroom">`
+document.querySelectorAll('mushroom').forEach((oneMush) => {
+  if (state.mushrooms) {
+    oneMush.style.visibility = 'visible';
+  } else {
+    oneMush.style.visibility = 'hidden';
+  }
+});
 }
 
+
 function renderGreenPeppers() {
+  document.querySelectorAll('green-pepper').forEach((onePep) => {
+    if (state.greenPeppers) {
+      onePep.style.visibility = 'visible';
+    } else {
+      onePep.style.visibility = 'hidden';
+    }
+  });
   // Iteration 1: set the visibility of `<section class="green-pepper">`
+
 }
+
 
 function renderWhiteSauce() {
   // Iteration 2: add/remove the class "sauce-white" of `<section class="sauce">`
@@ -75,9 +92,15 @@ document.querySelector('.btn.btn-pepperoni').addEventListener('click', function 
 });
 
 // Iteration 1: Add click event listener on `<button class="btn btn-mushrooms">`
-
+document.querySelector('.btn.mushrooms').addEventListener('click', function () {
+  state.pepperoni = !state.pepperoni;
+  renderEverything();
+});
 // Iteration 1: Add click event listener on `<button class="btn btn-green-peppers">`
-
+document.querySelector('.btn.btn-pepperoni').addEventListener('click', function () {
+  state.pepperoni = !state.pepperoni;
+  renderEverything();
+});
 // Iteration 2: Add click event listener on `<button class="btn btn-sauce">`
 
 // Iteration 2: Add click event listener on `<button class="btn btn-crust">`
